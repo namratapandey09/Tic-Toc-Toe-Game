@@ -5,7 +5,7 @@ let msgContainer=document.querySelector(".msg-container");
 let msg=document.querySelector("#msg");
 
 let turn0=true;
-let moveCount = 0; // 🔹 keeps track of total moves
+let moveCount = 0; // 🔹 
 
 const winPattern=[
    [0,1,2],
@@ -20,7 +20,7 @@ const winPattern=[
 
 const resetGame= ()=>{
   turn0=true;
-  moveCount = 0; // reset move count
+  moveCount = 0;
   enableBoxes();
   msgContainer.classList.add("hide");
 };
@@ -36,7 +36,7 @@ boxes.forEach((box) =>{
        }
        box.disabled=true;
 
-       moveCount++; // 🔹 increment after each move
+       moveCount++; 
        checkWinner();
   });
 });
@@ -60,8 +60,8 @@ const showWinner =(Winner)=>{
   disableBoxes();
 };
 
-const showDraw = ()=>{   // 🔹 new function for draw
-  msg.innerHTML="😅 It's a Draw!";
+const showDraw = ()=>{   
+  msg.innerHTML="😅 It's a Draw! Try Again.";
   msgContainer.classList.remove("hide");
   disableBoxes();
 };
@@ -75,12 +75,11 @@ const checkWinner=()=>{
       if (pos1Val !="" && pos2Val !="" && pos3Val !=""){
         if(pos1Val === pos2Val && pos2Val === pos3Val){
           showWinner(pos1Val);
-          return; // exit so draw doesn’t trigger after win
+          return; 
         }
       }
     }
 
-    // 🔹 if all 9 moves done & no winner -> Draw
     if(moveCount === 9){
       showDraw();
     }
@@ -88,3 +87,4 @@ const checkWinner=()=>{
 
 newGameBtn.addEventListener("click",resetGame);
 resetBtn.addEventListener("click",resetGame);
+
